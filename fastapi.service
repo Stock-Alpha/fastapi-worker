@@ -1,16 +1,20 @@
 [Unit]
-Description=FastAPI Control Server
+Description=FastAPI Worker
 After=network.target
 
 [Service]
 User=admin
 WorkingDirectory=/home/admin/fastapi-worker
-
-ExecStart=/home/admin/fastapi-worker/venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
-
+Environment="PATH=/home/admin/fastapi-worker/venv/bin"
+ExecStart=/home/admin/fastapi-worker/venv/bin/uvicorn app.main:app \
+  --host :: \
+  --port 8000 \
+  --workers 1 \
+  --loop uvloop \
+  --http h11 \
+  --no-access-log
 Restart=always
 RestartSec=3
-LimitNOFILE=4096
 
 [Install]
 WantedBy=multi-user.target
