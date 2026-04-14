@@ -1,0 +1,33 @@
+{
+  "pid": 361554,
+  "args": {
+    "client_db_id": 5,
+    "client_id": "CLI_100",
+    "strategy_id": "NIFTY_CE_PE",
+    "run_id": "strat_004",
+    "tranche": "T1",
+    "broker": "zerodha",
+    "static_ip": null,
+    "api_key": "api key",
+    "access_token": "access token",
+    "root_url": null,
+    "instrument": "NIFTY",
+    "is_investor_client": null,
+    "no_of_lots": 10,
+    "entry_time": "09:21:30",
+    "exit_time": "15:21:30",
+    "ce_prem": 120.5,
+    "pe_prem": 95.0,
+    "ce_hedge_prem": null,
+    "pe_hedge_prem": null,
+    "ce_sl_pts": null,
+    "pe_sl_pts": null,
+    "hedge_buy": null,
+    "move_to_cost": null,
+    "strategy_risk_management_id": null
+  },
+  "log_file": "/home/admin/fastapi-worker/app/data/12Apr2026/strat_004.log",
+  "started_at": "2026-04-12T06:01:42.004875",
+  "stopped_at": "2026-04-12T06:46:09.458697",
+  "status": "exited"
+}

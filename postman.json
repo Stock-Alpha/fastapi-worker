@@ -1,0 +1,423 @@
+{
+  "info": {
+    "name": "Worker Control API",
+    "description": "FastAPI worker manager — start/kill workers, read logs, fetch broker orders.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{API_KEY}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "API_KEY",
+      "value": "v2VrkyFmUOdCAk3MHnHj-MvMN2Ed-yrlOnR6yBRLQMo"
+    },
+    {
+      "key": "run_id",
+      "value": "strat_001"
+    },
+    {
+      "key": "client_db_id",
+      "value": "5"
+    },
+    {
+      "key": "client_id",
+      "value": "CLI_100"
+    },
+    {
+      "key": "broker",
+      "value": "zerodha"
+    }
+  ],
+  "item": [
+    {
+      "name": "Worker Management",
+      "item": [
+        {
+          "name": "Start Worker",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"run_id\": \"{{run_id}}\",\n  \"client_db_id\": 5,\n  \"client_id\": \"CLI_100\",\n  \"strategy_id\": \"NIFTY_CE_PE\",\n  \"tranche\": \"T1\",\n  \"broker\": \"{{broker}}\",\n  \"static_ip\": \"1.2.3.4\",\n  \"api_key\": \"your_kite_api_key\",\n  \"access_token\": \"your_kite_access_token\",\n  \"root_url\": \"https://api.kite.trade\",\n  \"instrument\": \"NIFTY\",\n  \"is_investor_client\": \"N\",\n  \"no_of_lots\": 10,\n  \"entry_time\": \"09:21:30\",\n  \"exit_time\": \"15:21:30\",\n  \"ce_prem\": 120.5,\n  \"pe_prem\": 95.0,\n  \"ce_hedge_prem\": 10.0,\n  \"pe_hedge_prem\": 8.0,\n  \"ce_sl_pts\": 50.0,\n  \"pe_sl_pts\": 50.0,\n  \"hedge_buy\": \"Y\",\n  \"move_to_cost\": \"Y\",\n  \"strategy_risk_management_id\": \"SRM_001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/start",
+              "host": ["{{base_url}}"],
+              "path": ["start"]
+            },
+            "description": "Start the common worker (worker.py) with broker in the body: kite, zerodha, or kotak. Each run_id must be unique per day."
+          }
+        },
+        {
+          "name": "Kill Worker",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/kill/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["kill", "{{run_id}}"]
+            },
+            "description": "Kill a specific running worker by run_id."
+          }
+        },
+        {
+          "name": "Kill All Workers",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/kill-all",
+              "host": ["{{base_url}}"],
+              "path": ["kill-all"]
+            },
+            "description": "Kill all running workers."
+          }
+        },
+        {
+          "name": "Exit Trade (Close Positions + Stop)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/exit_trade/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["exit_trade", "{{run_id}}"]
+            },
+            "description": "Signal worker to close all open positions and exit gracefully. Worker will call close_positions() then stop."
+          }
+        },
+        {
+          "name": "Exit Algo (Stop Without Changes)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/exit_algo/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["exit_algo", "{{run_id}}"]
+            },
+            "description": "Signal worker to stop immediately without making any trades or changes. No positions are closed."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Worker Info",
+      "item": [
+        {
+          "name": "List All Workers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/workers",
+              "host": ["{{base_url}}"],
+              "path": ["workers"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "running",
+                  "description": "Filter: running, killed, exited",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List all workers (running + killed + exited). Optional ?status= filter."
+          }
+        },
+        {
+          "name": "Get Worker Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/worker/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["worker", "{{run_id}}"]
+            },
+            "description": "Get full details for a specific worker by run_id."
+          }
+        },
+        {
+          "name": "Overall Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["status"]
+            },
+            "description": "Quick summary: active worker count and PIDs."
+          }
+        },
+        {
+          "name": "Health Liveness (no auth)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            },
+            "description": "GET /health — no API key; for load balancers. Returns service ok."
+          }
+        },
+        {
+          "name": "Health All Workers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health/workers",
+              "host": ["{{base_url}}"],
+              "path": ["health", "workers"]
+            },
+            "description": "Per-worker health: process_running, PID, last log line, overall ok/degraded."
+          }
+        },
+        {
+          "name": "Health One Worker",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["health", "{{run_id}}"]
+            },
+            "description": "Health snapshot for a single run_id."
+          }
+        },
+        {
+          "name": "Read Worker Log",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/log/{{run_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["log", "{{run_id}}"],
+              "query": [
+                {
+                  "key": "tail",
+                  "value": "50",
+                  "description": "Number of lines from end (default 50)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Read the last N lines from a worker's log file."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Update Orders (Fetch from Kite)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders/update?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "update"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "Fetch orders using client_db_id + client_id. Broker comes from stored broker on last /start for this client."
+          }
+        },
+        {
+          "name": "Get Stored Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "Read last stored orders for this client. Call POST /orders/update first."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Broker workers",
+      "item": [
+        {
+          "name": "List allowed brokers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/broker-workers",
+              "host": ["{{base_url}}"],
+              "path": ["broker-workers"]
+            },
+            "description": "Returns allowed broker keys (kite, kotak) for POST /start."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Positions & Margins",
+      "item": [
+        {
+          "name": "Update Positions (Kite)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/positions/update?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["positions", "update"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "GET https://api.kite.trade/portfolio/positions — shared per client; saves {client_db_id}_{client_id}_positions.json."
+          }
+        },
+        {
+          "name": "Get Stored Positions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/positions?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["positions"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "Read last saved positions for this client."
+          }
+        },
+        {
+          "name": "Update Margins (Kite)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/margins/update?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["margins", "update"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "GET https://api.kite.trade/user/margins — shared per client; saves {client_db_id}_{client_id}_margins.json."
+          }
+        },
+        {
+          "name": "Get Stored Margins",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/margins?client_db_id={{client_db_id}}&client_id={{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["margins"],
+              "query": [
+                {
+                  "key": "client_db_id",
+                  "value": "{{client_db_id}}"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}"
+                }
+              ]
+            },
+            "description": "Read last saved margins for this client."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Deployment",
+      "item": [
+        {
+          "name": "Deploy (Git Pull + Restart)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deploy",
+              "host": ["{{base_url}}"],
+              "path": ["deploy"]
+            },
+            "description": "Pull latest code from GitHub, install dependencies, and restart the FastAPI service. Returns git log of recent commits."
+          }
+        }
+      ]
+    }
+  ]
+}

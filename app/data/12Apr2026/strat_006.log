@@ -1,0 +1,108 @@
+2026-04-12 06:44:52 | strat_006 | STARTED | params={'run_id': 'strat_006', 'entry_time': '09:21:30', 'exit_time': '15:21:30', 'client_db_id': 5, 'client_id': 'CLI_100', 'strategy_id': 'NIFTY_CE_PE', 'tranche': 'T1', 'broker': 'zerodha', 'api_key': 'api key', 'access_token': 'access token', 'instrument': 'NIFTY', 'no_of_lots': 10, 'ce_prem': 120.5, 'pe_prem': 95.0}
+2026-04-12 06:44:52 | strat_006 | WAITING | entry_time=09:21:30 (in 9397s)
+2026-04-12 06:49:52 | strat_006 | WAITING | entry_time=09:21:30 (in 9097s)
+2026-04-12 06:54:52 | strat_006 | WAITING | entry_time=09:21:30 (in 8797s)
+2026-04-12 06:59:52 | strat_006 | WAITING | entry_time=09:21:30 (in 8497s)
+2026-04-12 07:04:52 | strat_006 | WAITING | entry_time=09:21:30 (in 8197s)
+2026-04-12 07:09:52 | strat_006 | WAITING | entry_time=09:21:30 (in 7897s)
+2026-04-12 07:14:52 | strat_006 | WAITING | entry_time=09:21:30 (in 7597s)
+2026-04-12 07:19:52 | strat_006 | WAITING | entry_time=09:21:30 (in 7297s)
+2026-04-12 07:24:52 | strat_006 | WAITING | entry_time=09:21:30 (in 6997s)
+2026-04-12 07:29:52 | strat_006 | WAITING | entry_time=09:21:30 (in 6697s)
+2026-04-12 07:34:52 | strat_006 | WAITING | entry_time=09:21:30 (in 6397s)
+2026-04-12 07:39:52 | strat_006 | WAITING | entry_time=09:21:30 (in 6097s)
+2026-04-12 07:44:52 | strat_006 | WAITING | entry_time=09:21:30 (in 5797s)
+2026-04-12 07:49:52 | strat_006 | WAITING | entry_time=09:21:30 (in 5497s)
+2026-04-12 07:54:52 | strat_006 | WAITING | entry_time=09:21:30 (in 5197s)
+2026-04-12 07:59:53 | strat_006 | WAITING | entry_time=09:21:30 (in 4896s)
+2026-04-12 08:04:53 | strat_006 | WAITING | entry_time=09:21:30 (in 4596s)
+2026-04-12 08:09:53 | strat_006 | WAITING | entry_time=09:21:30 (in 4296s)
+2026-04-12 08:14:53 | strat_006 | WAITING | entry_time=09:21:30 (in 3996s)
+2026-04-12 08:19:53 | strat_006 | WAITING | entry_time=09:21:30 (in 3696s)
+2026-04-12 08:24:53 | strat_006 | WAITING | entry_time=09:21:30 (in 3396s)
+2026-04-12 08:29:53 | strat_006 | WAITING | entry_time=09:21:30 (in 3096s)
+2026-04-12 08:34:53 | strat_006 | WAITING | entry_time=09:21:30 (in 2796s)
+2026-04-12 08:39:53 | strat_006 | WAITING | entry_time=09:21:30 (in 2496s)
+2026-04-12 08:44:53 | strat_006 | WAITING | entry_time=09:21:30 (in 2196s)
+2026-04-12 08:49:53 | strat_006 | WAITING | entry_time=09:21:30 (in 1896s)
+2026-04-12 08:54:53 | strat_006 | WAITING | entry_time=09:21:30 (in 1596s)
+2026-04-12 08:59:53 | strat_006 | WAITING | entry_time=09:21:30 (in 1296s)
+2026-04-12 09:04:53 | strat_006 | WAITING | entry_time=09:21:30 (in 996s)
+2026-04-12 09:09:53 | strat_006 | WAITING | entry_time=09:21:30 (in 696s)
+2026-04-12 09:14:53 | strat_006 | WAITING | entry_time=09:21:30 (in 396s)
+2026-04-12 09:19:53 | strat_006 | WAITING | entry_time=09:21:30 (in 96s)
+2026-04-12 09:21:31 | strat_006 | ACTIVE | trading window open
+2026-04-12 09:21:31 | strat_006 | HEARTBEAT | now=09:21:31 | remaining=21598s | lots=10 | instrument=NIFTY
+2026-04-12 09:26:31 | strat_006 | HEARTBEAT | now=09:26:31 | remaining=21298s | lots=10 | instrument=NIFTY
+2026-04-12 09:31:31 | strat_006 | HEARTBEAT | now=09:31:31 | remaining=20998s | lots=10 | instrument=NIFTY
+2026-04-12 09:36:31 | strat_006 | HEARTBEAT | now=09:36:31 | remaining=20698s | lots=10 | instrument=NIFTY
+2026-04-12 09:41:31 | strat_006 | HEARTBEAT | now=09:41:31 | remaining=20398s | lots=10 | instrument=NIFTY
+2026-04-12 09:46:31 | strat_006 | HEARTBEAT | now=09:46:31 | remaining=20098s | lots=10 | instrument=NIFTY
+2026-04-12 09:51:31 | strat_006 | HEARTBEAT | now=09:51:31 | remaining=19798s | lots=10 | instrument=NIFTY
+2026-04-12 09:56:31 | strat_006 | HEARTBEAT | now=09:56:31 | remaining=19498s | lots=10 | instrument=NIFTY
+2026-04-12 10:01:31 | strat_006 | HEARTBEAT | now=10:01:31 | remaining=19198s | lots=10 | instrument=NIFTY
+2026-04-12 10:06:31 | strat_006 | HEARTBEAT | now=10:06:31 | remaining=18898s | lots=10 | instrument=NIFTY
+2026-04-12 10:11:31 | strat_006 | HEARTBEAT | now=10:11:31 | remaining=18598s | lots=10 | instrument=NIFTY
+2026-04-12 10:16:31 | strat_006 | HEARTBEAT | now=10:16:31 | remaining=18298s | lots=10 | instrument=NIFTY
+2026-04-12 10:21:31 | strat_006 | HEARTBEAT | now=10:21:31 | remaining=17998s | lots=10 | instrument=NIFTY
+2026-04-12 10:26:31 | strat_006 | HEARTBEAT | now=10:26:31 | remaining=17698s | lots=10 | instrument=NIFTY
+2026-04-12 10:31:31 | strat_006 | HEARTBEAT | now=10:31:31 | remaining=17398s | lots=10 | instrument=NIFTY
+2026-04-12 10:36:31 | strat_006 | HEARTBEAT | now=10:36:31 | remaining=17098s | lots=10 | instrument=NIFTY
+2026-04-12 10:41:31 | strat_006 | HEARTBEAT | now=10:41:31 | remaining=16798s | lots=10 | instrument=NIFTY
+2026-04-12 10:46:31 | strat_006 | HEARTBEAT | now=10:46:31 | remaining=16498s | lots=10 | instrument=NIFTY
+2026-04-12 10:51:31 | strat_006 | HEARTBEAT | now=10:51:31 | remaining=16198s | lots=10 | instrument=NIFTY
+2026-04-12 10:56:31 | strat_006 | HEARTBEAT | now=10:56:31 | remaining=15898s | lots=10 | instrument=NIFTY
+2026-04-12 11:01:31 | strat_006 | HEARTBEAT | now=11:01:31 | remaining=15598s | lots=10 | instrument=NIFTY
+2026-04-12 11:06:31 | strat_006 | HEARTBEAT | now=11:06:31 | remaining=15298s | lots=10 | instrument=NIFTY
+2026-04-12 11:11:31 | strat_006 | HEARTBEAT | now=11:11:31 | remaining=14998s | lots=10 | instrument=NIFTY
+2026-04-12 11:16:31 | strat_006 | HEARTBEAT | now=11:16:31 | remaining=14698s | lots=10 | instrument=NIFTY
+2026-04-12 11:21:31 | strat_006 | HEARTBEAT | now=11:21:31 | remaining=14398s | lots=10 | instrument=NIFTY
+2026-04-12 11:26:31 | strat_006 | HEARTBEAT | now=11:26:31 | remaining=14098s | lots=10 | instrument=NIFTY
+2026-04-12 11:31:31 | strat_006 | HEARTBEAT | now=11:31:31 | remaining=13798s | lots=10 | instrument=NIFTY
+2026-04-12 11:36:31 | strat_006 | HEARTBEAT | now=11:36:31 | remaining=13498s | lots=10 | instrument=NIFTY
+2026-04-12 11:41:31 | strat_006 | HEARTBEAT | now=11:41:31 | remaining=13198s | lots=10 | instrument=NIFTY
+2026-04-12 11:46:31 | strat_006 | HEARTBEAT | now=11:46:31 | remaining=12898s | lots=10 | instrument=NIFTY
+2026-04-12 11:51:32 | strat_006 | HEARTBEAT | now=11:51:32 | remaining=12597s | lots=10 | instrument=NIFTY
+2026-04-12 11:56:32 | strat_006 | HEARTBEAT | now=11:56:32 | remaining=12297s | lots=10 | instrument=NIFTY
+2026-04-12 12:01:32 | strat_006 | HEARTBEAT | now=12:01:32 | remaining=11997s | lots=10 | instrument=NIFTY
+2026-04-12 12:06:32 | strat_006 | HEARTBEAT | now=12:06:32 | remaining=11697s | lots=10 | instrument=NIFTY
+2026-04-12 12:11:32 | strat_006 | HEARTBEAT | now=12:11:32 | remaining=11397s | lots=10 | instrument=NIFTY
+2026-04-12 12:16:32 | strat_006 | HEARTBEAT | now=12:16:32 | remaining=11097s | lots=10 | instrument=NIFTY
+2026-04-12 12:21:32 | strat_006 | HEARTBEAT | now=12:21:32 | remaining=10797s | lots=10 | instrument=NIFTY
+2026-04-12 12:26:32 | strat_006 | HEARTBEAT | now=12:26:32 | remaining=10497s | lots=10 | instrument=NIFTY
+2026-04-12 12:31:32 | strat_006 | HEARTBEAT | now=12:31:32 | remaining=10197s | lots=10 | instrument=NIFTY
+2026-04-12 12:36:32 | strat_006 | HEARTBEAT | now=12:36:32 | remaining=9897s | lots=10 | instrument=NIFTY
+2026-04-12 12:41:32 | strat_006 | HEARTBEAT | now=12:41:32 | remaining=9597s | lots=10 | instrument=NIFTY
+2026-04-12 12:46:32 | strat_006 | HEARTBEAT | now=12:46:32 | remaining=9297s | lots=10 | instrument=NIFTY
+2026-04-12 12:51:32 | strat_006 | HEARTBEAT | now=12:51:32 | remaining=8997s | lots=10 | instrument=NIFTY
+2026-04-12 12:56:32 | strat_006 | HEARTBEAT | now=12:56:32 | remaining=8697s | lots=10 | instrument=NIFTY
+2026-04-12 13:01:32 | strat_006 | HEARTBEAT | now=13:01:32 | remaining=8397s | lots=10 | instrument=NIFTY
+2026-04-12 13:06:32 | strat_006 | HEARTBEAT | now=13:06:32 | remaining=8097s | lots=10 | instrument=NIFTY
+2026-04-12 13:11:32 | strat_006 | HEARTBEAT | now=13:11:32 | remaining=7797s | lots=10 | instrument=NIFTY
+2026-04-12 13:16:32 | strat_006 | HEARTBEAT | now=13:16:32 | remaining=7497s | lots=10 | instrument=NIFTY
+2026-04-12 13:21:32 | strat_006 | HEARTBEAT | now=13:21:32 | remaining=7197s | lots=10 | instrument=NIFTY
+2026-04-12 13:26:32 | strat_006 | HEARTBEAT | now=13:26:32 | remaining=6897s | lots=10 | instrument=NIFTY
+2026-04-12 13:31:32 | strat_006 | HEARTBEAT | now=13:31:32 | remaining=6597s | lots=10 | instrument=NIFTY
+2026-04-12 13:36:32 | strat_006 | HEARTBEAT | now=13:36:32 | remaining=6297s | lots=10 | instrument=NIFTY
+2026-04-12 13:41:32 | strat_006 | HEARTBEAT | now=13:41:32 | remaining=5997s | lots=10 | instrument=NIFTY
+2026-04-12 13:46:32 | strat_006 | HEARTBEAT | now=13:46:32 | remaining=5697s | lots=10 | instrument=NIFTY
+2026-04-12 13:51:32 | strat_006 | HEARTBEAT | now=13:51:32 | remaining=5397s | lots=10 | instrument=NIFTY
+2026-04-12 13:56:32 | strat_006 | HEARTBEAT | now=13:56:32 | remaining=5097s | lots=10 | instrument=NIFTY
+2026-04-12 14:01:32 | strat_006 | HEARTBEAT | now=14:01:32 | remaining=4797s | lots=10 | instrument=NIFTY
+2026-04-12 14:06:32 | strat_006 | HEARTBEAT | now=14:06:32 | remaining=4497s | lots=10 | instrument=NIFTY
+2026-04-12 14:11:32 | strat_006 | HEARTBEAT | now=14:11:32 | remaining=4197s | lots=10 | instrument=NIFTY
+2026-04-12 14:16:32 | strat_006 | HEARTBEAT | now=14:16:32 | remaining=3897s | lots=10 | instrument=NIFTY
+2026-04-12 14:21:32 | strat_006 | HEARTBEAT | now=14:21:32 | remaining=3597s | lots=10 | instrument=NIFTY
+2026-04-12 14:26:32 | strat_006 | HEARTBEAT | now=14:26:32 | remaining=3297s | lots=10 | instrument=NIFTY
+2026-04-12 14:31:33 | strat_006 | HEARTBEAT | now=14:31:33 | remaining=2996s | lots=10 | instrument=NIFTY
+2026-04-12 14:36:33 | strat_006 | HEARTBEAT | now=14:36:33 | remaining=2696s | lots=10 | instrument=NIFTY
+2026-04-12 14:41:33 | strat_006 | HEARTBEAT | now=14:41:33 | remaining=2396s | lots=10 | instrument=NIFTY
+2026-04-12 14:46:33 | strat_006 | HEARTBEAT | now=14:46:33 | remaining=2096s | lots=10 | instrument=NIFTY
+2026-04-12 14:51:33 | strat_006 | HEARTBEAT | now=14:51:33 | remaining=1796s | lots=10 | instrument=NIFTY
+2026-04-12 14:56:33 | strat_006 | HEARTBEAT | now=14:56:33 | remaining=1496s | lots=10 | instrument=NIFTY
+2026-04-12 15:01:33 | strat_006 | HEARTBEAT | now=15:01:33 | remaining=1196s | lots=10 | instrument=NIFTY
+2026-04-12 15:06:33 | strat_006 | HEARTBEAT | now=15:06:33 | remaining=896s | lots=10 | instrument=NIFTY
+2026-04-12 15:11:33 | strat_006 | HEARTBEAT | now=15:11:33 | remaining=596s | lots=10 | instrument=NIFTY
+2026-04-12 15:16:33 | strat_006 | HEARTBEAT | now=15:16:33 | remaining=296s | lots=10 | instrument=NIFTY
+2026-04-12 15:21:30 | strat_006 | EXIT_TIME reached (15:21:30) — shutting down
+2026-04-12 15:21:30 | strat_006 | STOPPED

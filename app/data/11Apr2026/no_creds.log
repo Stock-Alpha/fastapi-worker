@@ -1,0 +1,3 @@
+2026-04-11 17:50:54 | no_creds | STARTED | params={'run_id': 'no_creds', 'entry_time': '00:00:00', 'exit_time': '23:59:59'}
+2026-04-11 17:50:54 | no_creds | ACTIVE | trading window open
+2026-04-11 17:50:54 | no_creds | HEARTBEAT | now=17:50:54 | remaining=22144s | lots=None | instrument=None

@@ -1,0 +1,3 @@
+2026-04-11 17:41:30 | test_log1 | STARTED | params={'run_id': 'test_log1', 'entry_time': '00:00:00', 'exit_time': '23:59:59', 'instrument': 'NIFTY', 'no_of_lots': 5}
+2026-04-11 17:41:30 | test_log1 | ACTIVE | trading window open
+2026-04-11 17:41:30 | test_log1 | HEARTBEAT | now=17:41:30 | remaining=22708s | lots=5 | instrument=NIFTY

@@ -1,0 +1,8 @@
+2026-04-11 18:19:01 | et_test | STARTED | params={'run_id': 'et_test', 'entry_time': '00:00:00', 'exit_time': '23:59:59', 'instrument': 'NIFTY', 'no_of_lots': 5}
+2026-04-11 18:19:01 | et_test | ACTIVE | trading window open
+2026-04-11 18:19:01 | et_test | HEARTBEAT | now=18:19:01 | remaining=20457s | lots=5 | instrument=NIFTY
+2026-04-11 18:19:16 | et_test | SIGNAL received: exit_trade
+2026-04-11 18:19:16 | et_test | EXIT_TRADE | Closing all positions...
+2026-04-11 18:19:16 | et_test | EXIT_TRADE | All positions closed.
+2026-04-11 18:19:16 | et_test | EXIT_TRADE | Graceful shutdown complete
+2026-04-11 18:19:16 | et_test | STOPPED
