@@ -1,22 +1,8 @@
 #!/bin/bash
-# ─────────────────────────────────────────────────────────────
-# FastAPI Worker — EC2 Bootstrap Script
-# Target: Debian 12 (t4g.nano). Service binds 0.0.0.0 (IPv4); use :: in fastapi.service if you need IPv6.
-#
-# Usage:
-#   curl -sSL https://raw.githubusercontent.com/YOUR_USER/fastapi-worker/main/setup.sh | sudo bash -s -- <API_KEY> <GITHUB_REPO_URL>
-#
-# Or pass as EC2 user-data:
-#   #!/bin/bash
-#   export API_KEY="your_key_here"
-#   export GITHUB_REPO="https://github.com/YOUR_USER/fastapi-worker.git"
-#   curl -sSL https://raw.githubusercontent.com/YOUR_USER/fastapi-worker/main/setup.sh | bash
-# ─────────────────────────────────────────────────────────────
-
 set -euo pipefail
 
 API_KEY="${1:-${API_KEY:-changeme}}"
-GITHUB_REPO="${2:-${GITHUB_REPO:-https://github.com/YOUR_USER/fastapi-worker.git}}"
+GITHUB_REPO="${2:-${GITHUB_REPO:-https://github.com/Stock-Alpha/fastapi-worker.git}}"
 APP_DIR="/home/admin/fastapi-worker"
 
 echo ">>> Installing system packages..."
@@ -40,7 +26,7 @@ su - admin -c "
     cd $APP_DIR
     python3 -m venv venv
     source venv/bin/activate
-    pip install -q -r requirements.txt
+    pip install -q -r requirements.txt uvloop
 "
 
 echo ">>> Writing .env..."
@@ -54,7 +40,29 @@ chown admin:admin "$APP_DIR/.env"
 chmod 600 "$APP_DIR/.env"
 
 echo ">>> Installing systemd service..."
-cp "$APP_DIR/fastapi.service" /etc/systemd/system/fastapi.service
+cat > /etc/systemd/system/fastapi.service <<EOF
+[Unit]
+Description=FastAPI Worker
+After=network.target
+
+[Service]
+User=admin
+WorkingDirectory=$APP_DIR
+Environment="PATH=$APP_DIR/venv/bin"
+ExecStart=$APP_DIR/venv/bin/uvicorn app.main:app \\
+  --host :: \\
+  --port 8000 \\
+  --workers 1 \\
+  --loop uvloop \\
+  --http h11 \\
+  --no-access-log
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 systemctl daemon-reload
 systemctl enable fastapi
 systemctl restart fastapi
@@ -68,9 +76,15 @@ admin ALL=(ALL) NOPASSWD: /bin/systemctl kill *
 EOF
 chmod 440 /etc/sudoers.d/fastapi
 
-echo ">>> Verifying..."
+echo ">>> Detecting IPv6..."
+API_IPV6=$(ip -6 addr show scope global | grep inet6 | awk '{print $2}' | cut -d/ -f1 | head -n1)
+
 sleep 2
 systemctl is-active fastapi && echo "FastAPI is running!" || echo "ERROR: FastAPI failed to start"
 
-API_IP="$(hostname -I 2>/dev/null | awk '{print $1}')"
-echo ">>> Done. API available at http://${API_IP:-<this-host-ip>}:8000"
+if [ -n "$API_IPV6" ]; then
+    echo ">>> API available at:"
+    echo "http://[$API_IPV6]:8000/docs"
+else
+    echo ">>> WARNING: No IPv6 found"
+fi
