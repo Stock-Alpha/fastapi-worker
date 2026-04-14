@@ -1,6 +1,0 @@
-2026-04-11 18:19:02 | ea_test | STARTED | params={'run_id': 'ea_test', 'entry_time': '00:00:00', 'exit_time': '23:59:59', 'instrument': 'BANKNIFTY', 'no_of_lots': 10}
-2026-04-11 18:19:02 | ea_test | ACTIVE | trading window open
-2026-04-11 18:19:02 | ea_test | HEARTBEAT | now=18:19:02 | remaining=20456s | lots=10 | instrument=BANKNIFTY
-2026-04-11 18:19:17 | ea_test | SIGNAL received: exit_algo
-2026-04-11 18:19:17 | ea_test | EXIT_ALGO | Stopped without changes
-2026-04-11 18:19:17 | ea_test | STOPPED

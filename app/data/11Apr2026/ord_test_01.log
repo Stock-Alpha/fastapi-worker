@@ -1,3 +1,0 @@
-2026-04-11 17:50:54 | ord_test_01 | STARTED | params={'run_id': 'ord_test_01', 'entry_time': '00:00:00', 'exit_time': '23:59:59', 'client_db_id': 5, 'client_id': 'CLI_100', 'broker': 'zerodha', 'api_key': 'test_kite_key', 'access_token': 'test_kite_token', 'instrument': 'NIFTY', 'no_of_lots': 10}
-2026-04-11 17:50:54 | ord_test_01 | ACTIVE | trading window open
-2026-04-11 17:50:54 | ord_test_01 | HEARTBEAT | now=17:50:54 | remaining=22144s | lots=10 | instrument=NIFTY
